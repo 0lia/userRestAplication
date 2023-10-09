@@ -96,7 +96,7 @@ public class UserService {
 
     public List<User> findByDateRange(LocalDate from, LocalDate to){
         if(from.isAfter(to))
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("\"from\" should be less than \"to\"");
         if(users == null)
             return Collections.emptyList();
         return users.stream()
